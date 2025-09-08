@@ -23,6 +23,11 @@ import glob
 import numpy as np
 
 
+config_dir = r"C:\Users\emanuelefrassi\OneDrive - Delft University of Technology\Work\Anomaly detection\Stick Figures\Stick Figures RDG\WallS\Final procedures\Pyskl_data\\configuration_rgbpose"
+
+config_files = glob.glob(osp.join(config_dir, "config_*.py"))
+
+
 def parse_args():
     parser = argparse.ArgumentParser(
         description='pyskl test (and eval) a model')
@@ -151,11 +156,6 @@ def inference_pytorch(args, cfg, data_loader):
     return outputs
     #return  rgb_feat, pose_feat
 
-
-
-config_dir = r"C:\Users\emanuelefrassi\OneDrive - Delft University of Technology\Work\Anomaly detection\Stick Figures\Stick Figures RDG\WallS\Final procedures\Pyskl_data\\configuration_rgbpose"
-
-config_files = glob.glob(osp.join(config_dir, "config_*.py"))
 
 
 for config_path in config_files:

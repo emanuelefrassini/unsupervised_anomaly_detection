@@ -8,6 +8,8 @@ import random
 
 JSON_FOLDER = r"C:\Users\emanuelefrassi\OneDrive - Delft University of Technology\Work\Anomaly detection\Stick Figures\Stick Figures RDG\WallS\Final procedures\Poses RDG"
 OUTPUT_FOLDER = r"C:\Users\emanuelefrassi\OneDrive - Delft University of Technology\Work\Anomaly detection\Stick Figures\Stick Figures RDG\WallS\Final procedures\Pyskl_data\dataset_10seconds"
+
+
 IMG_SHAPE = (1080, 1920)  # Image dimensions
 LABEL = 1  # Placeholder action label
 N = 5  # Sampling every Nth frame
