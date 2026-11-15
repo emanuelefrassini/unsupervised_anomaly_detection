@@ -98,11 +98,11 @@ class Config:
         self.min_lr = 1e-6           # Minimum learning rate
 
         # --- Data Specific Configuration ---
-        self.normal_feature_folder = r"C:\Users\emanuelefrassi\OneDrive - Delft University of Technology\Work\Anomaly detection\Output\Features\rgbpose_rgb50_pose200_rgb_NORMAL" 
-        self.normal_annotation_folder = r"C:\Users\emanuelefrassi\OneDrive - Delft University of Technology\Work\Datasets\poses_annotations_NORMAL" 
+        self.normal_feature_folder = os.environ.get("CAG_NORMAL_FEATURES", "data/normal/features")
+        self.normal_annotation_folder = os.environ.get("CAG_NORMAL_ANNOTATIONS", "data/normal/annotations")
         
-        self.anomaly_feature_folder = r"C:\Users\emanuelefrassi\OneDrive - Delft University of Technology\Work\Anomaly detection\Output\Features\rgbpose_rgb50_pose200_rgb_ANOMALY" 
-        self.anomaly_annotation_folder = r"C:\Users\emanuelefrassi\OneDrive - Delft University of Technology\Work\Datasets\poses_annotations_ANOMALY" 
+        self.anomaly_feature_folder = os.environ.get("CAG_ANOMALY_FEATURES", "data/anomaly/features")
+        self.anomaly_annotation_folder = os.environ.get("CAG_ANOMALY_ANNOTATIONS", "data/anomaly/annotations")
 
         self.seq_len = 574 # Fixed sequence length for your data (number of 10-sec segments per procedure)
         self.feature_dim = 2048 # Dimension of each 10-sec segment's feature vector
@@ -112,7 +112,7 @@ class Config:
 
         # --- Hyperparameter Search Log Folder ---
         # This will be used as the base, and a timestamped subfolder will be created for each search session
-        self.base_log_dir = r"C:\Users\emanuelefrassi\Desktop\paper runs"
+        self.base_log_dir = os.environ.get("CAG_RUNS_DIR", "runs")
 
 
 # Initialize config (used as a base template)
@@ -246,7 +246,7 @@ class SurgicalProcedureDataset(Dataset):
                     pad = np.zeros((self.seq_len - T_new, self.feature_dim), dtype=np.float32)
                 elif self.padding == 'repeat_last':
                     if T_new > 0:
-                        pad = np.repeat(sequence[-1][None, :], self.feature_dim - T_new, axis=0)
+                        pad = np.repeat(sequence[-1][None, :], self.seq_len - T_new, axis=0)
                     else:  
                         pad = np.zeros((self.seq_len - T_new, self.feature_dim), dtype=np.float32)
                 sequence = np.vstack([sequence, pad])
@@ -547,7 +547,6 @@ def train_vae(vae_model, train_loader, val_loader, config, writer, run_name):
         factor=config.scheduler_factor, # Factor by which the learning rate will be reduced
         patience=config.scheduler_patience_vae, # Number of epochs with no improvement after which learning rate will be reduced
         min_lr=config.min_lr, # A lower bound on the learning rate
-        verbose=True         # Print a message when LR is reduced
     )
 
     vae_model.train()
@@ -963,9 +962,9 @@ if __name__ == "__main__":
 
     # --- CHOOSE YOUR MODE ---
     # To run a full hyperparameter search (training each model):
-    RUN_HYPERPARAMETER_SEARCH = False
+    RUN_HYPERPARAMETER_SEARCH = os.environ.get("CAG_MODE", "").lower() == "search"
     # To reproduce results for a specific previously trained model:
-    REPRODUCE_SPECIFIC_RUN = True 
+    REPRODUCE_SPECIFIC_RUN = os.environ.get("CAG_MODE", "").lower() == "reproduce"
     # -----------------------
 
     if RUN_HYPERPARAMETER_SEARCH:
@@ -1196,7 +1195,7 @@ if __name__ == "__main__":
         # --- USER INPUT FOR REPRODUCTION ---
         # 1. Specify the exact timestamp of the search session
         #    (e.g., from the console output of a previous search run, or from your 'hyperparameter_search' folder)
-        specific_session_timestamp = "0" # <--- REPLACE WITH YOUR SESSION TIMESTAMP
+        specific_session_timestamp = os.environ.get("CAG_SESSION", "0") # <--- REPLACE WITH YOUR SESSION TIMESTAMP
 
         # 2. Specify the exact hyperparameters (run_id) of the model you want to reproduce
         #    (e.g., from the run_name in the console output or folder name)

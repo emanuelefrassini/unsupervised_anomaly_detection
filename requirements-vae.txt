@@ -1,0 +1,10 @@
+# Lightweight VAE dependencies for the source module and synthetic smoke test.
+# NOT the original PySKL/MMCV feature-extraction stack and NOT a lockfile.
+torch>=2.1
+numpy>=1.23
+pandas>=1.5
+scikit-learn>=1.1
+matplotlib>=3.7
+seaborn>=0.12
+tqdm>=4.65
+tensorboard>=2.12
