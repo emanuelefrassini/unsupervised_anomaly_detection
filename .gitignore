@@ -1,0 +1,53 @@
+# Python & editors
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.idea/
+.vscode/
+*.bak
+
+# Local environment, cache, scratch and training outputs
+.env
+.env.*
+!.env.example
+runs/
+logs/
+checkpoints/
+weights/
+outputs/
+output/
+results_private/
+wandb/
+lightning_logs/
+*.tfevents.*
+
+# Hospital/video/pose datasets and potentially identifiable artifacts
+# IMPORTANT: .gitignore does NOT prevent tracked files or force-added files
+# from being published. Audit all staged changes before pushing.
+data/
+dataset/
+datasets/
+private/
+clinical_data/
+annotations/
+features/
+recordings/
+videos/
+*.mkv
+*.mp4
+*.avi
+*.mov
+*.dicom
+*.dcm
+*.pkl
+*.pickle
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt

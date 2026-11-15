@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use or discuss this repository, please cite the associated peer-reviewed paper."
+title: "Unsupervised anomaly detection in coronary angiography — research code"
+type: software
+authors:
+  - family-names: Frassini
+    given-names: Emanuele
+repository-code: "https://github.com/emanuelefrassini/unsupervised_anomaly_detection"
+preferred-citation:
+  type: article
+  title: "Unsupervised multi-modal variational autoencoder for anomaly detection in coronary angiography"
+  authors:
+    - family-names: Frassini
+      given-names: Emanuele
+    - family-names: Butler
+      given-names: Rick M.
+    - family-names: Hendriks
+      given-names: Benno H. W.
+    - family-names: van der Elst
+      given-names: Maarten
+    - family-names: van den Dobbelsteen
+      given-names: John J.
+  journal: "Minimally Invasive Therapy & Allied Technologies"
+  doi: "10.1080/13645706.2026.2705585"
+  year: 2026
