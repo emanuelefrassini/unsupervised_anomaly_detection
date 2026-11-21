@@ -1,0 +1,383 @@
+{
+  "scope": "synthetic only; not clinical validation or reproduction of published results",
+  "framework": "2.10.0+cpu",
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "scikit_learn": "1.8.0",
+  "config": {
+    "n_normal": 64,
+    "n_anomaly": 32,
+    "epochs": 12,
+    "seed": 42,
+    "rgb_dim": 12,
+    "pose_dim": 6,
+    "hidden": 32,
+    "latent": 8,
+    "beta": 0.01
+  },
+  "split_ids": {
+    "train": [
+      63,
+      37,
+      12,
+      1,
+      41,
+      58,
+      5,
+      35,
+      50,
+      33,
+      14,
+      26,
+      62,
+      22,
+      2,
+      48,
+      13,
+      42,
+      51,
+      24,
+      18,
+      59,
+      6,
+      55,
+      16,
+      36,
+      39,
+      45,
+      8,
+      21,
+      28,
+      43
+    ],
+    "validation": [
+      29,
+      49,
+      23,
+      38,
+      56,
+      7
+    ],
+    "calibration": [
+      30,
+      61,
+      31,
+      44,
+      10,
+      19,
+      57,
+      34,
+      40,
+      11,
+      0,
+      27,
+      60,
+      67,
+      84,
+      65,
+      93,
+      90,
+      72,
+      66,
+      69,
+      80,
+      91,
+      75,
+      64,
+      95,
+      83,
+      85,
+      74
+    ],
+    "test": [
+      47,
+      20,
+      9,
+      46,
+      17,
+      53,
+      4,
+      25,
+      52,
+      15,
+      54,
+      32,
+      3,
+      81,
+      71,
+      89,
+      87,
+      86,
+      68,
+      77,
+      76,
+      82,
+      73,
+      70,
+      94,
+      79,
+      78,
+      92,
+      88
+    ]
+  },
+  "scaling_fit_ids": [
+    63,
+    37,
+    12,
+    1,
+    41,
+    58,
+    5,
+    35,
+    50,
+    33,
+    14,
+    26,
+    62,
+    22,
+    2,
+    48,
+    13,
+    42,
+    51,
+    24,
+    18,
+    59,
+    6,
+    55,
+    16,
+    36,
+    39,
+    45,
+    8,
+    21,
+    28,
+    43
+  ],
+  "best_epoch": 12,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.0165738761425018,
+      "validation_loss": 0.9870214462280273
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.006323054432869,
+      "validation_loss": 0.9794726371765137
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.0015929490327835,
+      "validation_loss": 0.9713489413261414
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.9926563203334808,
+      "validation_loss": 0.9566287398338318
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.9774700552225113,
+      "validation_loss": 0.926004946231842
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.9471917450428009,
+      "validation_loss": 0.8858726024627686
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.8908393830060959,
+      "validation_loss": 0.8020660281181335
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.8218887746334076,
+      "validation_loss": 0.7107356786727905
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.7366053014993668,
+      "validation_loss": 0.6100900173187256
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.6769615858793259,
+      "validation_loss": 0.5461295247077942
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.5957438051700592,
+      "validation_loss": 0.5314092636108398
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.5863461047410965,
+      "validation_loss": 0.4651679992675781
+    }
+  ],
+  "threshold": 0.6366492509841919,
+  "calibration": {
+    "f1": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "roc_auc": 1.0,
+    "average_precision": 1.0
+  },
+  "test": {
+    "f1": 0.9696969696969697,
+    "precision": 0.9411764705882353,
+    "recall": 1.0,
+    "roc_auc": 1.0,
+    "average_precision": 1.0
+  },
+  "held_out_scores": [
+    {
+      "synthetic_id": 47,
+      "label": 0,
+      "score": 0.4604281783103943
+    },
+    {
+      "synthetic_id": 20,
+      "label": 0,
+      "score": 0.4538272023200989
+    },
+    {
+      "synthetic_id": 9,
+      "label": 0,
+      "score": 0.4892488121986389
+    },
+    {
+      "synthetic_id": 46,
+      "label": 0,
+      "score": 0.5698633790016174
+    },
+    {
+      "synthetic_id": 17,
+      "label": 0,
+      "score": 0.46082744002342224
+    },
+    {
+      "synthetic_id": 53,
+      "label": 0,
+      "score": 0.40614667534828186
+    },
+    {
+      "synthetic_id": 4,
+      "label": 0,
+      "score": 0.6214267015457153
+    },
+    {
+      "synthetic_id": 25,
+      "label": 0,
+      "score": 0.5313323140144348
+    },
+    {
+      "synthetic_id": 52,
+      "label": 0,
+      "score": 0.48067164421081543
+    },
+    {
+      "synthetic_id": 15,
+      "label": 0,
+      "score": 0.4769527316093445
+    },
+    {
+      "synthetic_id": 54,
+      "label": 0,
+      "score": 0.39955955743789673
+    },
+    {
+      "synthetic_id": 32,
+      "label": 0,
+      "score": 0.648840069770813
+    },
+    {
+      "synthetic_id": 3,
+      "label": 0,
+      "score": 0.5428179502487183
+    },
+    {
+      "synthetic_id": 81,
+      "label": 1,
+      "score": 11.969539642333984
+    },
+    {
+      "synthetic_id": 71,
+      "label": 1,
+      "score": 10.574944496154785
+    },
+    {
+      "synthetic_id": 89,
+      "label": 1,
+      "score": 11.875608444213867
+    },
+    {
+      "synthetic_id": 87,
+      "label": 1,
+      "score": 12.474138259887695
+    },
+    {
+      "synthetic_id": 86,
+      "label": 1,
+      "score": 11.854072570800781
+    },
+    {
+      "synthetic_id": 68,
+      "label": 1,
+      "score": 12.179754257202148
+    },
+    {
+      "synthetic_id": 77,
+      "label": 1,
+      "score": 11.253442764282227
+    },
+    {
+      "synthetic_id": 76,
+      "label": 1,
+      "score": 10.503472328186035
+    },
+    {
+      "synthetic_id": 82,
+      "label": 1,
+      "score": 12.771280288696289
+    },
+    {
+      "synthetic_id": 73,
+      "label": 1,
+      "score": 11.163694381713867
+    },
+    {
+      "synthetic_id": 70,
+      "label": 1,
+      "score": 12.267168045043945
+    },
+    {
+      "synthetic_id": 94,
+      "label": 1,
+      "score": 11.796880722045898
+    },
+    {
+      "synthetic_id": 79,
+      "label": 1,
+      "score": 11.636503219604492
+    },
+    {
+      "synthetic_id": 78,
+      "label": 1,
+      "score": 12.069663047790527
+    },
+    {
+      "synthetic_id": 92,
+      "label": 1,
+      "score": 12.2227144241333
+    },
+    {
+      "synthetic_id": 88,
+      "label": 1,
+      "score": 10.95297908782959
+    }
+  ]
+}

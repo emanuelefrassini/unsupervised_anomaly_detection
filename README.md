@@ -6,6 +6,33 @@
 
 > **Research software, not a clinical device.** This repository is a collection of experimental scripts associated with the paper. It does **not** contain the hospital recordings, pose annotations, pretrained feature-extraction checkpoints, trained VAE checkpoints, or a fully validated end-to-end reproduction package. Reported paper metrics below are **from the publication**, not from newly executed tests of this repository.
 
+## Reproducible multimodal VAE (PyTorch)
+
+A standalone [modern implementation](modern_vae/) provides an independently testable multimodal variational autoencoder for procedure-level anomaly detection.
+
+The implementation includes:
+
+- Separate LSTM encoders for RGB and pose features.
+- Intermediate fusion through a shared Gaussian latent representation.
+- Modality-specific LSTM decoders.
+- Padding-aware reconstruction loss.
+- Normalization fitted exclusively on normal training procedures.
+- Independent training, validation, calibration and test sets.
+- Deterministic reconstruction-based anomaly scoring.
+- Synthetic multimodal experiments and automated tests.
+
+### Quick start
+
+```bash
+python -m pip install -r modern_vae/requirements.txt
+python -m pytest modern_vae/tests -v
+python -m modern_vae --normal 64 --anomalies 32 --epochs 12 --seed 42 --output /tmp/vae_synthetic.json
+```
+
+See the [implementation documentation](modern_vae/README.md) for the mathematical formulation, experiment configuration and reproducibility instructions.
+
+The synthetic benchmark verifies the software pipeline without requiring hospital recordings or pretrained feature extractors. Its results are not clinical performance estimates or a reproduction of the published study.
+
 ## Research overview
 
 Coronary angiography (CAG) usually follows a structured workflow, but unexpected events—such as an **additional catheter exchange**—can indicate a departure from the standard procedure. The study investigates an unsupervised representation-learning approach to detecting these workflow anomalies from two complementary modalities: RGB video and human pose information.
