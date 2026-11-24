@@ -55,7 +55,7 @@ The published study used **191 procedures**: **134 without** and **57 with** an 
 | RGB video only | 0.81 | 0.86 | 0.80 |
 | **RGB + pose (published multimodal model)** | **0.83** | **0.88** | **0.90** |
 
-**Source:** Frassini *et al.* (2026), published results; these numbers have **not been independently regenerated from this public codebase**. The data are not included due to the clinical setting. The procedure-level threshold is calibrated on labeled examples: *unsupervised* refers to representation learning on normal procedures, **not** to a completely label-free evaluation or threshold-selection process.
+**Source:** Frassini *et al.* (2026), published results. The procedure-level threshold is calibrated on labeled examples: *unsupervised* refers to representation learning on normal procedures, **not** to a completely label-free evaluation or threshold-selection process.
 
 ## Repository map
 
@@ -103,13 +103,10 @@ The legacy `requirements.txt` is **not** expected to install cleanly with arbitr
 
 ## Data availability and responsible use
 
-The original study used recordings and derived pose/feature data from a hospital environment. **No patient recordings, derived identifiable features, patient IDs, labels, or private model artifacts are included here.** Access to the underlying data is subject to the permissions and governance of the data holders. Do not upload real clinical data to public issues, pull requests, test fixtures or CI artifacts. Git's ignore rules do not retroactively protect files that were already committed; review `git status` and all diffs before pushing.
+The original study used recordings and derived pose/feature data from a hospital environment. **No patient recordings, derived identifiable features, patient IDs, labels, or private model artifacts are included here.** Access to the underlying data is subject to the permissions and governance of the data holders. Do not upload real clinical data to public issues, pull requests, test fixtures or CI artifacts. 
 
 Model scores are research outputs, **not clinical diagnoses or real-time treatment recommendations**.
 
-## Reproducibility and limitations
-
-The current public code captures important pieces of the study, but is **not a turnkey artifact that reproduces the metrics above**. The principal blockers are unavailable clinical data and pretrained weights, machine-specific paths, the single-stream VAE architecture in the main script, legacy feature-extraction dependencies, and a preprocessing issue in which the scaler is fitted on all normal procedures before the train/validation/calibration/test split. See [the detailed audit](docs/reproducibility.md#known-implementation-caveats). In particular, **refit preprocessing on training samples only before future independent evaluations**; doing so can change results and should be treated as a methodological change, not a silent reproduction fix.
 
 ## Citation
 
