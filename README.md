@@ -44,6 +44,9 @@ The reported framework segments procedures into **10-second clips**, extracts cl
 <p align="center">
   <img src="Figures/anomaly_detection_framework.jpg" alt="Overview of the published multimodal anomaly-detection framework" width="75%">
 </p>
+<p align="center">
+  <em> Overview of the proposed unsupervised multi-modal anomaly detection framework. (A) The input video is segmented into 10-s clips; (B) Each clip is processed by a pre-trained PoseConv3D network to extract high-dimensional features; (C) The feature vectors from consecutive clips are concatenated to form a single matrix representing the entire surgical procedure; (D) This feature matrix is then fed into a Variational Autoencoder, which learns to reconstruct the input; (E) The anomaly score is calculated based on the reconstruction error.</em>
+</p> 
 
 ## Published findings
 
