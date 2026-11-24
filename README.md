@@ -41,20 +41,9 @@ The reported framework segments procedures into **10-second clips**, extracts cl
 
 ### Paper architecture at a glance
 
-```mermaid
-flowchart LR
-  V[RGB video clips] --> RV[3D CNN features<br/>2048 dimensions]
-  P[Pose sequences] --> PV[PoseConv3D features<br/>512 dimensions]
-  RV --> RE[RGB LSTM encoder]
-  PV --> PE[Pose LSTM encoder]
-  RE --> F[Feature fusion]
-  PE --> F
-  F --> Z[Variational latent representation]
-  Z --> D[LSTM decoder]
-  D --> S[Reconstruction error<br/>and anomaly score]
-  S --> T[Threshold from<br/>calibration set]
-```
-
+<p align="center">
+  <img src="Figures/anomaly_detection_framework.jpg" alt="Overview of the published multimodal anomaly-detection framework" width="100%">
+</p>
 **Implementation note:** The diagram describes the **published paper's architecture**. The checked-in `VAE_reproducible_improved.py` defines a **single LSTM encoder** with configurable input dimension (default `2048`), rather than the paper's separate pose/RGB LSTM encoders. The repository also contains a feature-concatenation helper, but that does not by itself establish equivalence to the paper's intermediate-fusion model. See [reproducibility limitations](docs/reproducibility.md) before attempting to reproduce published results.
 
 ## Published findings
