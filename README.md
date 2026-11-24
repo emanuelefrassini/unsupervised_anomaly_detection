@@ -42,7 +42,7 @@ The reported framework segments procedures into **10-second clips**, extracts cl
 ### Paper architecture at a glance
 
 <p align="center">
-  <img src="Figures/anomaly_detection_framework.jpg" alt="Overview of the published multimodal anomaly-detection framework" width="100%">
+  <img src="Figures/anomaly_detection_framework.jpg" alt="Overview of the published multimodal anomaly-detection framework" width="75%">
 </p>
 
 ## Published findings
